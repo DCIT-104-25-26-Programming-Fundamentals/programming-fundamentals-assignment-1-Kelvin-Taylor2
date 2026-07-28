@@ -57,3 +57,71 @@
 #include <iostream>
 using namespace std;
 
+// -----------------------------------------------------------------------------
+// PART A — Print Single Multiplication Table
+// -----------------------------------------------------------------------------
+void printSingleTable()
+{
+    int num;
+
+    cout << "\n====== PART A: Single Multiplication Table ======\n";
+    cout << "Enter a number: ";
+    cin >> num;
+
+    cout << "\nMultiplication Table for " << num << ":\n";
+    for (int i = 1; i <= 12; i++)
+    {
+        cout << num << "  x  " << i << "  =  " << (num * i) << endl;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// PART B — Print Multiplication Tables from 1 to N
+// -----------------------------------------------------------------------------
+void printTablesUpToN()
+{
+    int N;
+
+    cout << "\n====== PART B: Multiplication Tables from 1 to N ======\n";
+    cout << "Enter a number N: ";
+    cin >> N;
+
+    if (N <= 0)
+    {
+        cout << "Error: N must be a positive integer.\n";
+        return;
+    }
+
+    for (int j = 1; j <= N; j++)
+    {
+        cout << "\nMultiplication Table for " << j << ":\n";
+        for (int i = 1; i <= 12; i++)
+        {
+            cout << j << "  x  " << i << "  =  " << (j * i) << endl;
+        }
+        if (j < N)
+        {
+            cout << "---------------------------\n";
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Main function — runs both parts
+// -----------------------------------------------------------------------------
+int main()
+{
+    cout << "============================================\n";
+    cout << "  MULTIPLICATION TABLE GENERATOR\n";
+    cout << "============================================\n";
+
+    printSingleTable();
+    printTablesUpToN();
+
+    cout << "\n============================================\n";
+    cout << "  Program completed. Goodbye!\n";
+    cout << "============================================\n";
+
+    return 0;
+}
+
