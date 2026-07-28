@@ -51,3 +51,105 @@
 #include <iostream>
 using namespace std;
 
+// -----------------------------------------------------------------------------
+// PART A — Print the First N Terms of the Fibonacci Sequence
+// -----------------------------------------------------------------------------
+void printFibonacciTerms()
+{
+    int N;
+
+    cout << "\n====== PART A: Print First N Terms ======\n";
+    cout << "How many terms? ";
+    cin >> N;
+
+    if (N <= 0)
+    {
+        cout << "Error: N must be a positive integer.\n";
+        return;
+    }
+
+    cout << "Fibonacci sequence: ";
+
+    int first = 0, second = 1;
+
+    for (int i = 1; i <= N; i++)
+    {
+        if (i == 1)
+        {
+            cout << first;
+        }
+        else if (i == 2)
+        {
+            cout << " " << second;
+        }
+        else
+        {
+            int next = first + second;
+            cout << " " << next;
+            first = second;
+            second = next;
+        }
+    }
+    cout << endl;
+}
+
+// -----------------------------------------------------------------------------
+// PART B — Check if a Number Belongs to the Fibonacci Sequence
+// -----------------------------------------------------------------------------
+void checkFibonacciNumber()
+{
+    int num;
+
+    cout << "\n====== PART B: Check Fibonacci Number ======\n";
+    cout << "Enter a number to check: ";
+    cin >> num;
+
+    // Generate Fibonacci numbers up to num
+    int first = 0, second = 1;
+
+    // Handle 0 and 1 as special cases
+    if (num == 0 || num == 1)
+    {
+        cout << num << " is a Fibonacci number.\n";
+        return;
+    }
+
+    int next = first + second;
+
+    while (next < num)
+    {
+        first = second;
+        second = next;
+        next = first + second;
+    }
+
+    if (next == num)
+    {
+        cout << num << " is a Fibonacci number.\n";
+    }
+    else
+    {
+        cout << num << " is NOT a Fibonacci number.\n";
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Main function — runs both parts
+// -----------------------------------------------------------------------------
+int main()
+{
+    cout << "============================================\n";
+    cout << "  FIBONACCI SEQUENCE GENERATOR\n";
+    cout << "============================================\n";
+
+    printFibonacciTerms();
+    checkFibonacciNumber();
+
+    cout << "\n============================================\n";
+    cout << "  Program completed. Goodbye!\n";
+    cout << "============================================\n";
+
+    return 0;
+}
+
+
