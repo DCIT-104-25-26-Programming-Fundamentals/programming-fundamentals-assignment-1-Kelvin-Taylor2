@@ -65,11 +65,168 @@
 //
 
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// YOUR CODE BELOW
 // =============================================================================
 
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
+
+// Function prototypes
+void showMenu();
+double add(double a, double b);
+double subtract(double a, double b);
+double multiply(double a, double b);
+double divide(double a, double b);
+int mod(int a, int b);
+double power(double a, double b);
+
+int main() {
+    int choice;
+
+    do {
+        showMenu();
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                double a, b;
+                cout << "Enter first number : ";
+                cin >> a;
+                cout << "Enter second number: ";
+                cin >> b;
+                cout << "Result: " << a << " + " << b << " = "
+                     << fixed << setprecision(2) << add(a, b) << endl;
+                break;
+            }
+            case 2: {
+                double a, b;
+                cout << "Enter first number : ";
+                cin >> a;
+                cout << "Enter second number: ";
+                cin >> b;
+                cout << "Result: " << a << " - " << b << " = "
+                     << fixed << setprecision(2) << subtract(a, b) << endl;
+                break;
+            }
+            case 3: {
+                double a, b;
+                cout << "Enter first number : ";
+                cin >> a;
+                cout << "Enter second number: ";
+                cin >> b;
+                cout << "Result: " << a << " * " << b << " = "
+                     << fixed << setprecision(2) << multiply(a, b) << endl;
+                break;
+            }
+            case 4: {
+                double a, b;
+                cout << "Enter first number : ";
+                cin >> a;
+                cout << "Enter second number: ";
+                cin >> b;
+                if (b == 0) {
+                    cout << "Error: Cannot divide by zero." << endl;
+                } else {
+                    cout << "Result: " << a << " / " << b << " = "
+                         << fixed << setprecision(2) << divide(a, b) << endl;
+                }
+                break;
+            }
+            case 5: {
+                int a, b;
+                cout << "Enter first number : ";
+                cin >> a;
+                cout << "Enter second number: ";
+                cin >> b;
+                if (b == 0) {
+                    cout << "Error: Cannot modulo by zero." << endl;
+                } else {
+                    cout << "Result: " << a << " % " << b << " = "
+                         << mod(a, b) << endl;
+                }
+                break;
+            }
+            case 6: {
+                double a, b;
+                cout << "Enter first number : ";
+                cin >> a;
+                cout << "Enter second number: ";
+                cin >> b;
+                cout << "Result: " << a << " ^ " << b << " = "
+                     << fixed << setprecision(2) << power(a, b) << endl;
+                break;
+            }
+            case 7:
+                cout << "Goodbye!" << endl;
+                break;
+            default:
+                cout << "Error: Invalid choice. Please select an option between 1 and 7." << endl;
+                cin.clear();
+                cin.ignore(10000, '\n');
+        }
+    } while (choice != 7);
+
+    return 0;
+}
+
+// -----------------------------------------------------------------------------
+// Show Menu
+// -----------------------------------------------------------------------------
+void showMenu() {
+    cout << "============================" << endl;
+    cout << "     SIMPLE CALCULATOR" << endl;
+    cout << "============================" << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Modulus" << endl;
+    cout << "6. Exponentiation" << endl;
+    cout << "7. Quit" << endl;
+    cout << "Select an operation (1-7): ";
+}
+
+// -----------------------------------------------------------------------------
+// Addition
+// -----------------------------------------------------------------------------
+double add(double a, double b) {
+    return a + b;
+}
+
+// -----------------------------------------------------------------------------
+// Subtraction
+// -----------------------------------------------------------------------------
+double subtract(double a, double b) {
+    return a - b;
+}
+
+// -----------------------------------------------------------------------------
+// Multiplication
+// -----------------------------------------------------------------------------
+double multiply(double a, double b) {
+    return a * b;
+}
+
+// -----------------------------------------------------------------------------
+// Division
+// -----------------------------------------------------------------------------
+double divide(double a, double b) {
+    return a / b;
+}
+
+// -----------------------------------------------------------------------------
+// Modulus
+// -----------------------------------------------------------------------------
+int mod(int a, int b) {
+    return a % b;
+}
+
+// -----------------------------------------------------------------------------
+// Exponentiation
+// -----------------------------------------------------------------------------
+double power(double a, double b) {
+    return pow(a, b);
+}
 
